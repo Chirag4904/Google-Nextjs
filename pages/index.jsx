@@ -19,7 +19,7 @@ export default function Home() {
 			return;
 		}
 		//if search term is not empty, redirect to search page
-		router.push(`/search?term=${searchTerm.trim()}`);
+		router.push(`/search?term=${searchTerm.trim()}&searchType=`);
 	};
 	return (
 		<div>
