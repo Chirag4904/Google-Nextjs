@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
+import ImageResults from "../Components/ImageResults";
 import SearchHeader from "../Components/SearchHeader";
 import SearchResults from "../Components/SearchResults";
 import Response from "../Response";
@@ -8,7 +9,7 @@ export default function search({ results }) {
 	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const router = useRouter();
 	// console.log(router);
-	// console.log(results);
+	console.log(results);
 	return (
 		<div>
 			<Head>
@@ -18,14 +19,18 @@ export default function search({ results }) {
 			{/* Search Header */}
 			<SearchHeader />
 
-			{/* Search Result */}
-			<SearchResults results={results} />
+			{/* Search web and imageResult */}
+			{router.query.searchType == "image" ? (
+				<ImageResults results={results} />
+			) : (
+				<SearchResults results={results} />
+			)}
 		</div>
 	);
 }
 
 export async function getServerSideProps(context) {
-	const mockData = true;
+	const mockData = false;
 	const startIndex = context.query.start || "1";
 	const data = mockData
 		? Response
