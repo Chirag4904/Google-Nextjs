@@ -5,7 +5,7 @@ import SearchHeader from "../Components/SearchHeader";
 import SearchResults from "../Components/SearchResults";
 import Response from "../Response";
 
-export default function search({ results }) {
+export default function Search({ results }) {
 	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const router = useRouter();
 	// console.log(router);
